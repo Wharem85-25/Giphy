@@ -9,9 +9,12 @@ const { config } = require('../codigo');
 
 const giphyFetch = new GiphyFetch(config.apiKey);
 
-const Gifs = () => {
+const Gifs = (busqueda) => {
+	// console.log(search)
+	const [seach, setSearch] = useState("");
+
   function SearchGif({onGifClick}) {
-		const search = document.getElementById('search').value;
+		const search = document.getElementById('search');
 		const fetchGifs = (offset) =>
 		giphyFetch.search(search || "cats", { offset, limit: 10 });
 		const [width, setWidth] = useState(window.innerWidth);

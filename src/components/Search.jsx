@@ -7,6 +7,11 @@ import '../assets/styles/Search.css';
 
 const Search = () => {
 	const [toggle, setToggle] = useState(true);
+	const [search, setSearch] = useState('');
+
+	const busqueda = () => {
+		setSearch(document.getElementById('search').value);
+	}
 
 	const handleToggle = () => {
 		setToggle(!toggle);
@@ -20,7 +25,7 @@ const Search = () => {
 					<img src={SearchButton} className="image" onClick={handleToggle}/>
 				</button>
 			</div>
-			{toggle && <Gifs />}
+			{toggle && <Gifs busqueda={busqueda} />}
 		</div>
 	);
 };
